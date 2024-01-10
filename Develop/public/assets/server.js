@@ -31,3 +31,10 @@ app.post('/api/notes', (req, res) => {
     notes.push(newNote);
     res.json(newNote);
 });
+
+app.use(express.static('public'));
+
+// starting the server
+app.listen(PORT, () => {
+    console.log(`Server is active on http://localhost:${PORT}`);
+});
