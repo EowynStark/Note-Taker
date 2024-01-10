@@ -19,3 +19,15 @@ app.get('/', (req, res) => {
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'notes.html'));
 });
+
+// getting existing notes
+app.get('/api/notes', (req, res) => {
+    res.json(notes);
+});
+
+// saving a new note
+app.post('/api/notes', (req, res) => {
+    const newNote = req.body;
+    notes.push(newNote);
+    res.json(newNote);
+});
