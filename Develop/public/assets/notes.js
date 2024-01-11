@@ -28,3 +28,26 @@ function fetchAndDisplayNotes() {
         console.error(error);
     });
 }
+
+// updates note list
+function updateNoteList(notes) {
+    listGroup.innerHTML = '';
+    notes.forEach((note) => {
+        const listItem = document.createElement('li');
+        listItem.classList.add('list-group-item');
+        listItem.innerText = note.title;
+        listItem.addEventListener('click', () => displayNoteDetails(note));
+        listGroup.appendChild(listItem);
+    });
+}
+
+// save note function
+
+
+// new note function
+
+
+// display note details function 
+
+
+// clearing form function
