@@ -7,13 +7,17 @@ This application is designed to help a user take notes and keep track of them as
 ## Authors and Credits
 Front-end source code originated by <a href= "https://github.com/coding-boot-camp/miniature-eureka">Xandromus</a>.
 
-Back-end source code originated by <a href="https://github.com/EowynStark">Andria Jean</a> with the help of course materials and reference materials.
+Back-end source code originated by <a href="https://github.com/EowynStark">Andria Jean</a> with the help of course materials and researched reference sources from provided documentation.
 
 ## Version History
 Version 1.0 created 1/9/2024
 
 ## Mock-Up
+Landing Page
+<img src ="./develop/mockup-images/landing_page.png">
 
+Note Page
+<img src ="./develop/mockup-images/notes_page.png">
 
 ## License
 Creative Commons Legal Code
