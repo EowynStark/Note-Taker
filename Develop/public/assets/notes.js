@@ -42,7 +42,31 @@ function updateNoteList(notes) {
 }
 
 // save note function
+function saveNote() {
+    const title = noteTitleInput.value;
+    const text = noteTextarea.value;
 
+    if (title && text) {
+        fetch('/api/notes', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json',},
+            body: JSON.stringify({title, text}),
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Failed to save note');
+            }
+            return response.json();
+        })
+        .then((newNote) => {
+            fetchAndDisplayNotes();
+            clearForm();
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
+}
 
 // new note function
 
