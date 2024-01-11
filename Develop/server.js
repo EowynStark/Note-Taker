@@ -5,7 +5,11 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // middleware to handle JSON data
+app.use(express.static('public'));
 app.use(express.json());
+
+// adding db.json file path
+const dbFilePath = path.join(__dirname, 'db', 'db.json');
 
 // data storage for potential notes
 let notes = [];
@@ -31,8 +35,6 @@ app.post('/api/notes', (req, res) => {
     notes.push(newNote);
     res.json(newNote);
 });
-
-app.use(express.static('public'));
 
 // starting the server
 app.listen(PORT, () => {
