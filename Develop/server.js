@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
+const { json } = require('body-parser');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -41,7 +42,28 @@ app.get('/api/notes', (req, res) => {
     });
 });
 
-// 
+// saves new notes to db.json file
+app.post('/api/notes', (req, res) => {
+    const newNote = req.body;
+    newNote.id = uuidv4();
+    fs.readFile(dbFilePath, 'utf-8', (err, data) => {
+        if(err) {
+            console.error(err);
+            res.status(500).json({ error: 'Server Error'});
+        } else {
+            const notes = JSON.parse(data);
+            notes.push(newNote);
+            fs.writeFile(dbFilePath, JSON.stringify(notes), (err) => {
+                if(err) {
+                    console.error(err);
+                    res.status(500).json({ error: 'Server Error'});
+                } else {
+                    res.json(newNote);
+                }
+            });
+        }
+    });
+});
 
 // starting the server
 app.listen(PORT, () => {
