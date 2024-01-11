@@ -27,6 +27,8 @@ app.get('/notes', (req, res) => {
 });
 
 // api routes
+
+// returns saved notes
 app.get('/api/notes', (req, res) => {
     fs.readFile(dbFilePath, 'utf-8', (err, data) => {
         if (err) {
@@ -38,17 +40,8 @@ app.get('/api/notes', (req, res) => {
         }
     });
 });
-// getting existing notes
-app.get('/api/notes', (req, res) => {
-    res.json(notes);
-});
 
-// saving a new note
-app.post('/api/notes', (req, res) => {
-    const newNote = req.body;
-    notes.push(newNote);
-    res.json(newNote);
-});
+// 
 
 // starting the server
 app.listen(PORT, () => {
