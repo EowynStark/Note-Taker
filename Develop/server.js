@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
+const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -24,6 +26,18 @@ app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'notes.html'));
 });
 
+// api routes
+app.get('/api/notes', (req, res) => {
+    fs.readFile(dbFilePath, 'utf-8', (err, data) => {
+        if (err) {
+            console.error(err);
+            res.status(500).json({error: 'Server Error'});
+        } else {
+            const notes = JSON.parse(data);
+            res.json(notes);
+        }
+    });
+});
 // getting existing notes
 app.get('/api/notes', (req, res) => {
     res.json(notes);
