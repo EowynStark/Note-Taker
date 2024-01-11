@@ -1,8 +1,8 @@
 # Note-Taker
-an application used to write and save notes 
+An application for writing and saving notes. 
 
 ## Description
-
+This application is designed to help a user take notes and keep track of them as they are written. Whenever a new idea, task, or thought comes to mind the user can add a new note and it will be saved for them to remember whatever note was important to the user to take note of in the first place. It could be used to keep track of reminders, tasks to complete, or goals a user may want to hold themselves accountable for. It is intended to be a user friendly application to make keeping notes easy to do and visually appealing as they write them down virtually. 
 
 ## Authors and Credits
 Front-end source code originated by <a href= "https://github.com/coding-boot-camp/miniature-eureka">Xandromus</a>.
