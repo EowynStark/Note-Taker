@@ -69,9 +69,22 @@ function saveNote() {
 }
 
 // new note function
-
+function newNote() {
+    noteTitleInput.value = '';
+    noteTextarea.value = '';
+    // add to logic here
+}
 
 // display note details function 
-
+function displayNoteDetails(note) {
+    noteTitleInput.value = note.title;
+    noteTextarea.value = note.text;
+    // add to logic here
+}
 
 // clearing form function
+function clearForm() {
+    noteTitleInput.value = '';
+    noteTextarea.value = '';
+    // add to logic here
+}
