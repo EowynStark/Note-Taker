@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, 'Develop','public')));
 app.use(express.json());
 
 // adding db.json file path
-const dbFilePath = path.join(__dirname, 'db', 'db.json');
+const dbFilePath = path.join(__dirname, 'Develop', 'db', 'db.json');
 
 
 // landing page route
