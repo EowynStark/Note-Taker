@@ -12,7 +12,7 @@ if (window.location.pathname === '/notes') {
   saveNoteBtn = document.querySelector('.save-note');
   newNoteBtn = document.querySelector('.new-note');
   clearBtn = document.querySelector('.clear-btn');
-  noteList = document.querySelector('.list-container .list-group');
+  noteList = document.querySelectorAll('.list-container .list-group');
 }
 
 // Show an element
@@ -130,13 +130,12 @@ const handleRenderBtns = () => {
 // Render the list of note titles
 const renderNoteList = async (notes) => {
   let jsonNotes = await notes.json();
-  const noteListContainer = document.querySelector('.list-container .list-group');
-  noteListContainer.innerHTML = '';
-  let noteListItems = [];
-  
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
   }
+
+  let noteListItems = [];
+
   // Returns HTML element with or without a delete button
   const createLi = (text, delBtn = true) => {
     const liEl = document.createElement('li');
@@ -178,7 +177,7 @@ const renderNoteList = async (notes) => {
   });
 
   if (window.location.pathname === '/notes') {
-    noteListItems.forEach((note) => noteListContainer.append(note));
+    noteListItems.forEach((note) => noteList[0].append(note));
   }
 };
 
