@@ -7,17 +7,15 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // middleware to handle JSON data
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'Develop','public')));
 app.use(express.json());
 
 // adding db.json file path
 const dbFilePath = path.join(__dirname, 'db', 'db.json');
 
-// data storage for potential notes
-let notes = [];
 
 // landing page route
-app.get('./', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'Develop', 'public', 'index.html'));
 });
 
